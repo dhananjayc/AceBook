@@ -1,33 +1,36 @@
 import "../src/Assets/common.css"
-import Navbar from "./Components/Navbar";
 import Layout from "./Layout";
-import Home from "./Pages/Home";
 import routes from "./routes"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./store/reducer"
+import { store } from "./store/store";
+import ErrorHandlerProvider from "./Providers/ErrorHandlerProvider";
 
 function App() {
 
   return (
     <div className="App">
       <Provider store={store}>
-      <BrowserRouter>
-      <Routes>
-        {routes?.map(e=>
-        e.route==="common"? <Route
-         exact 
-         path={e.path}
-         element={<Layout component={<e.component/>}/>}
-        />:
-        <Route
-         exact 
-         path={e.path}
-         element={<e.component/>}
-        />
-        )}
-        </Routes>
-      </BrowserRouter>
+        <ErrorHandlerProvider>
+          <BrowserRouter>
+            <Routes>
+              {routes?.map((e, index)=>
+                e.route==="common" ? <Route
+                key={`route-key-${index}-${e.path}`}
+                exact 
+                path={e.path}
+                element={<Layout component={<e.component/>}/>}
+              />:
+              <Route
+                key={`route-keys-${index}-${e.path}`}
+                exact 
+                path={e.path}
+                element={<e.component/>}
+              />
+              )}
+            </Routes>
+          </BrowserRouter>
+        </ErrorHandlerProvider>
       </Provider>
     </div>
   );

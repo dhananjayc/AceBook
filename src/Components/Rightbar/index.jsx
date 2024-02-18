@@ -12,10 +12,11 @@ const Rightbar = () => {
         <span><b>Anand Raj</b> and <b>3 other friends</b> have a birthday today.</span>
       </div>
       <span className='online-friends-title'>Online Friends</span>
-      {friendList?.map(e=>
+      {friendList?.map((e, index)=>
       <Online
-      profilePic={e.profilePic}
-      friendName={e.friendName}
+        key={`online-key-${index}`}
+        profilePic={e.profilePic}
+        friendName={e.friendName}
       />)}
     </div>
   )

@@ -3,7 +3,8 @@
     flex: 3;
     height: 88vh;
     position: fixed;
-    width: 310px;
+    width: 23%;
+    /* width: 310px; */
 }
 ::-webkit-scrollbar{
     width: 5px;

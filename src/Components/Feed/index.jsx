@@ -8,14 +8,15 @@ const Feed = () => {
   return (
     <div className='feed col-md-12'>
       <Share/>
-      {postDetails?.map(e=>
+      {postDetails?.map((e, index)=>
         <Post 
-        likes={e.likes}
-        reaction={e.reaction}
-        status={e.status}
-        profilePicture={e.profilePicture} 
-        profileName={e.profileName}
-        postPicture={e.postPicture}
+          key={`post-key-${index}`}
+          likes={e.likes}
+          reaction={e.reaction}
+          status={e.status}
+          profilePicture={e.profilePicture} 
+          profileName={e.profileName}
+          postPicture={e.postPicture}
         />
         )}
     </div>

@@ -1,6 +1,6 @@
-import React from 'react'
-import ProfilePicture from '../../Components/ProfilePicture'
-import Timeline from '../../Components/Timeline'
+import React from 'react';
+import ProfilePicture from '../../Components/ProfilePicture';
+import Timeline from '../../Components/Timeline';
 
 const Profile = () => {
   return (

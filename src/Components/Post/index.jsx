@@ -3,7 +3,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import "./index.css"
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import SendIcon from '@mui/icons-material/Send';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 
 const Post = (props) => {
@@ -11,18 +10,14 @@ const Post = (props) => {
   const [isLiked,setIsLiked] = useState(false)
   const [reaction,setReaction] = useState(props?.reaction)
   const [isReacted,setIsReacted] = useState(false)
-  const [comment,setComment] = useState(props?.comment)
-  const [share,setShare] = useState(props?.share)
 
   function ClickOnce(Event){
-    console.log(isReacted)
-    if(Event==="like"){
-       setLikes(isLiked?likes-1:likes+1)
-       setIsLiked(isLiked===false?true:false)
-    }
-    else if(Event==="reaction"){
-    setReaction(isReacted?reaction-1:reaction+1)
-    setIsReacted(isReacted===false?true:false)
+    if (Event==="like") {
+      setLikes(isLiked ? likes-1 : likes+1)
+      setIsLiked(!isLiked)
+    } else if(Event==="reaction") {
+      setReaction(isReacted ? reaction-1 : reaction+1)
+      setIsReacted(!isReacted)
     }
   }
   
